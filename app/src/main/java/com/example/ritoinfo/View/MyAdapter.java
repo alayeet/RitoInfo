@@ -32,9 +32,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public ViewHolder(View view){
             super(view);
             layout = view;
-            txtHeader = (TextView) view.findViewById(R.id.laneView);
-            txtBody = (TextView) view.findViewById(R.id.gameID);
+            txtHeader = (TextView) view.findViewById(R.id.textLineOne);
+            txtBody = (TextView) view.findViewById(R.id.textLineTwo);
         }
+    }
+
+    public void add(int position, Match item){
+        values.add(position, item);
+        notifyItemInserted(position);
     }
 
     public MyAdapter(List<Match> myDataset, Context context, OnItemClickListener listener) {
@@ -48,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
         View v =
-                inflater.inflate(R.layout.single_match_fragment_layout, parent, false);
+                inflater.inflate(R.layout.row_layout, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -57,6 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position){
         final Match currentMatch = values.get(position);
         holder.txtHeader.setText(currentMatch.getGameMode());
+        holder.txtBody.setText((int) currentMatch.getGameDurationInSec());
         holder.itemView.setOnClickListener(new  View.OnClickListener(){
             @Override public void onClick(View v){
                 listener.onItemClick(currentMatch);
