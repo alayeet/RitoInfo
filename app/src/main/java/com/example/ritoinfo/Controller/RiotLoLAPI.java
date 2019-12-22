@@ -14,7 +14,7 @@ public interface RiotLoLAPI {
             "X-Riot-Token: RGAPI-286a1ce0-704b-4c80-ade6-bb025aad10ca"
     })
 
-    @GET("/summoner/v4/summoners/by-name/")
+    @GET("summoner/v4/summoners/by-name/{summonerName}")
     Call<Summoner> getSummonerByName(@Path("summonerName") String summonerName);
 
     //@GET("/platform/v3/champion-rotations")

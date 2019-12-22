@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitInstance {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://euw1.api.riotgames.com/lol";
+    private static final String BASE_URL = "https://euw1.api.riotgames.com/lol/";
 
     public static Retrofit getRetrofitInstance(){
         if(retrofit == null){
