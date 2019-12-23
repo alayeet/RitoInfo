@@ -6,5 +6,6 @@
 
     <color name="primaryBrown">#795548</color>
     <color name="darkBrown">#4e342e</color>
+    <color name="darkerBrown">#241B15</color>
     <color name="lightBrown">#d7ccc8</color>
 </resources>

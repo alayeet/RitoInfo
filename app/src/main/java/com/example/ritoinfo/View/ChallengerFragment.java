@@ -11,19 +11,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ritoinfo.Controller.Controller;
-import com.example.ritoinfo.Model.Match;
+import com.example.ritoinfo.Controller.ChallengerController;
+import com.example.ritoinfo.Model.Challenger;
 import com.example.ritoinfo.R;
 
 import java.util.List;
 
-public class ListMatchFragment extends Fragment {
+public class ChallengerFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter myAdatper;
     private RecyclerView.LayoutManager layoutManager;
     private SearchView searchView;
 
-    private Controller controller;
+    private ChallengerController controller;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -33,7 +33,7 @@ public class ListMatchFragment extends Fragment {
         recyclerView = view.findViewById(R.id.my_recycler_view);
         searchView = view.findViewById(R.id.searchView);
 
-        controller = new Controller(this);
+        controller = new ChallengerController(this);
         controller.start();
 
         return view;
@@ -49,25 +49,25 @@ public class ListMatchFragment extends Fragment {
     public void navToMatch(String json) {
     }
 
-    public void showList(List<Match> matchs) {
-        if(matchs != null){
+    public void showChallenger(List<Challenger> challengers) {
+        if(challengers != null){
             recyclerView.setHasFixedSize(true);
             layoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(layoutManager);
 
-            myAdatper = new RecyclerViewAdapter(matchs, getListener());
+            myAdatper = new RecyclerViewAdapter(challengers);
             recyclerView.setAdapter(myAdatper);
         }
     }
 
-    private RecyclerViewAdapter.OnItemClickListener getListener() {
-        return new RecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Match item) {
-                controller.onItemClick(item);
-            }
-        };
-    }
+    //private RecyclerViewAdapter.OnItemClickListener getListener() {
+    //    return new RecyclerViewAdapter.OnItemClickListener() {
+    //        @Override
+    //        public void onItemClick(Challenger item) {
+    //            controller.onItemClick(item);
+    //        }
+    //    };
+    //}
 
     public void displayToast(String message){
         Toast.makeText(this.getContext(), message, Toast.LENGTH_LONG).show();

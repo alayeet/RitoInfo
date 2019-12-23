@@ -2,41 +2,52 @@ package com.example.ritoinfo.Model;
 
 public class Match {
 
-    private long gameID;
-    private String gameMode;
-    private long gameDurationInSec;
-    private long  gameCreation;
+    private long gameId;
+    private String lane;
+    private int champion;
+    private String role;
+    private long timestamp;
 
-    public long getGameID() {
-        return gameID;
+    public void setLane(String lane) {
+        this.lane = lane;
     }
 
-    public void setGameID(long gameID) {
-        this.gameID = gameID;
+    public void setChampion(int champion) {
+        this.champion = champion;
     }
 
-    public String getGameMode() {
-        return gameMode;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public void setGameMode(String gameMode) {
-        this.gameMode = gameMode;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public long getGameDurationInSec() {
-        return gameDurationInSec;
+    public String getLane() {
+        return lane;
     }
 
-    public void setGameDurationInSec(long gameDurationInSec) {
-        this.gameDurationInSec = gameDurationInSec;
+    public int getChampion() {
+        return champion;
     }
 
-    public long getGameCreation() {
-        return gameCreation;
+    public String getRole() {
+        return role;
     }
 
-    public void setGameCreation(long gameCreation) {
-        this.gameCreation = gameCreation;
+    public long getTimestamp() {
+        return timestamp;
     }
+
+    public long getgameId() {
+        return gameId;
+    }
+
+    public void setgameId(long gameId) {
+        this.gameId = gameId;
+    }
+
+
 
 }

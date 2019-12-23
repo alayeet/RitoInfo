@@ -6,6 +6,7 @@
 
     <SearchView
         android:id="@+id/searchView"
+        android:background="@color/primaryBrown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -13,6 +14,7 @@
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
+        android:background="@color/lightBrown"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" >
