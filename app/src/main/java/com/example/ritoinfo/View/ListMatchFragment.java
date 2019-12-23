@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ListMatchFragment extends Fragment {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdatper;
+    private RecyclerView.Adapter myAdatper;
     private RecyclerView.LayoutManager layoutManager;
     private SearchView searchView;
 
@@ -39,6 +39,13 @@ public class ListMatchFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Setup any handles to view objects here
+        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+        displayToast("Fragment crée");
+    }
+
     public void navToMatch(String json) {
     }
 
@@ -48,13 +55,13 @@ public class ListMatchFragment extends Fragment {
             layoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(layoutManager);
 
-            mAdatper = new MyAdapter(matchs, getContext(), getListener());
-            recyclerView.setAdapter(mAdatper);
+            myAdatper = new RecyclerViewAdapter(matchs, getListener());
+            recyclerView.setAdapter(myAdatper);
         }
     }
 
-    private MyAdapter.OnItemClickListener getListener() {
-        return new MyAdapter.OnItemClickListener() {
+    private RecyclerViewAdapter.OnItemClickListener getListener() {
+        return new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Match item) {
                 controller.onItemClick(item);

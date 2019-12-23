@@ -3,12 +3,21 @@ package com.example.ritoinfo.Model;
 public class Summoner {
 
     private int profileIconId;
-    private String summonerName;
-    private String summonerPUUID;
+    private String name;
+    private String puuid;
+    private long summonerLevel;
     private String accountId;
-    private String summonerId;
-    private int revisionDate;
+    private String id;
+    private long revisionDate;
 
+
+    public long getSummonerLevel() {
+        return summonerLevel;
+    }
+
+    public void setSummonerLevel(long summonerLevel) {
+        this.summonerLevel = summonerLevel;
+    }
     public int getProfileIconId() {
         return profileIconId;
     }
@@ -18,19 +27,19 @@ public class Summoner {
     }
 
     public String getSummonerName() {
-        return summonerName;
+        return name;
     }
 
     public void setSummonerName(String summonerName) {
-        this.summonerName = summonerName;
+        this.name = summonerName;
     }
 
     public String getSummonerPUUID() {
-        return summonerPUUID;
+        return puuid;
     }
 
     public void setSummonerPUUID(String summonerPUUID) {
-        this.summonerPUUID = summonerPUUID;
+        this.puuid = summonerPUUID;
     }
 
     public String getAccountId() {
@@ -42,14 +51,14 @@ public class Summoner {
     }
 
     public String getSummonerId() {
-        return summonerId;
+        return id;
     }
 
     public void setSummonerId(String summonerId) {
-        this.summonerId = summonerId;
+        this.id = summonerId;
     }
 
-    public int getRevisionDate() {
+    public long getRevisionDate() {
         return revisionDate;
     }
 

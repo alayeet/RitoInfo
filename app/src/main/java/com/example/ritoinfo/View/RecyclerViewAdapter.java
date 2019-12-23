@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +13,8 @@ import com.example.ritoinfo.R;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private final Context context;
     private List<Match> values;
     private final OnItemClickListener listener;
 
@@ -27,13 +25,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView txtHeader;
         public TextView txtBody;
-        public View layout;
 
         public ViewHolder(View view){
             super(view);
-            layout = view;
-            txtHeader = (TextView) view.findViewById(R.id.textLineOne);
-            txtBody = (TextView) view.findViewById(R.id.textLineTwo);
+            txtHeader = view.findViewById(R.id.textLineOne);
+            txtBody = view.findViewById(R.id.textLineTwo);
         }
     }
 
@@ -42,21 +38,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         notifyItemInserted(position);
     }
 
-    public MyAdapter(List<Match> myDataset, Context context, OnItemClickListener listener) {
+    public RecyclerViewAdapter(List<Match> myDataset, OnItemClickListener listener) {
         this.listener = listener;
-        this.context = context;
         values = myDataset;
     }
 
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-        View v =
-                inflater.inflate(R.layout.row_layout, parent, false);
-        // set the view's size, margins, paddings and layout parameters
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View v;
+        v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_match_fragment_layout, parent, false);
+
+        return new ViewHolder(v);
     }
 
     public void onBindViewHolder(ViewHolder holder, final int position){

@@ -17,13 +17,14 @@ public class Controller {
 
     private ListMatchFragment fragment;
     private SharedPreferences sharedPreferences;
-    private List<Match> matchs;
+    private List<Match> matchList;
 
     public Controller(ListMatchFragment fragment){
         this.fragment = fragment;
     }
 
     public void start(){
+
 
         RiotLoLAPI riotLoLAPI = RetrofitInstance.getRetrofitInstance().create(RiotLoLAPI.class);
 
@@ -35,12 +36,13 @@ public class Controller {
             @Override
             public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
                 if(response.isSuccessful()){
-                    matchs = response.body();
+                    matchList = response.body();
                     fragment.displayToast("Connexion réussie");
                 }else {
                     System.out.println(response.errorBody());
+                    fragment.displayToast("Error");
                 }
-                fragment.showList(matchs);
+                fragment.showList(matchList);
             }
 
             @Override
