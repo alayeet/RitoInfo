@@ -46,7 +46,7 @@ public class SummonerFragment extends Fragment {
         TextView sumName = v.findViewById(R.id.textSummonerName);
         TextView sumLvl = v.findViewById(R.id.textLvl);
 
-        sumName.setText(summoner.getSummonerName());
-        sumLvl.setText(Long.toString(summoner.getSummonerLevel()));
+        sumName.setText("Nom d'invocateur : "+summoner.getSummonerName());
+        sumLvl.setText("Lvl "+summoner.getSummonerLevel());
     }
 }

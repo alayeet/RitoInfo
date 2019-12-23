@@ -2,6 +2,7 @@ package com.example.ritoinfo.Controller;
 
 import android.content.SharedPreferences;
 
+import com.example.ritoinfo.Model.RiotLoLAPI;
 import com.example.ritoinfo.Model.Summoner;
 import com.example.ritoinfo.View.SummonerFragment;
 import com.google.gson.Gson;
@@ -35,7 +36,7 @@ public class SummonerController {
 
         RiotLoLAPI riotLoLAPI = retrofit.create(RiotLoLAPI.class);
 
-        Call<Summoner> call = riotLoLAPI.getSummoner();
+        Call<Summoner> call = riotLoLAPI.getSummoner("yanis le maçon");
 
         call.enqueue(new Callback<Summoner>() {
             @Override

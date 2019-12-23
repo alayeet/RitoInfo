@@ -3,6 +3,7 @@ package com.example.ritoinfo.Controller;
 import android.content.SharedPreferences;
 
 import com.example.ritoinfo.Model.Challenger;
+import com.example.ritoinfo.Model.RiotLoLAPI;
 import com.example.ritoinfo.View.ChallengerFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

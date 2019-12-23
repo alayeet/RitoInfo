@@ -41,9 +41,7 @@ public class ChallengerFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-        displayToast("Fragment crée");
+        //displayToast("Fragment crée");
     }
 
     public void navToMatch(String json) {
